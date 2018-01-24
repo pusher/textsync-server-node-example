@@ -1,0 +1,21 @@
+{
+  "name": "textsync-server-node-example",
+  "version": "0.0.1",
+  "main": "target/server.js",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "prettier": "^1.10.2",
+    "textsync-server-node": "^0.2.0"
+  },
+  "author": "James Lees <james.lees@pusher.com>",
+  "scripts": {
+    "start": "node --require dotenv/config app/server.js",
+    "format": "./node_modules/.bin/prettier/app/*.js"
+  },
+  "engines": {
+    "node": "8.5.0"
+  }
+}

@@ -16,6 +16,6 @@
     "format": "./node_modules/.bin/prettier/app/*.js"
   },
   "engines": {
-    "node": "8.5.0"
+    "node": "^8.5.0"
   }
 }

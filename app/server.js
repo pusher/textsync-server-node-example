@@ -40,7 +40,7 @@ app.post('/textsync/tokens', (req, res) => {
   };
 
   // set the tokenExpiry to 20 minutes
-  let options = { tokenExpiry: 1 * 20 };
+  let options = { tokenExpiry: 1 * 60 *20 };
   let token = textsync
     .authorizeDocument(req.body, permissionsFn, options)
     .then(token => {

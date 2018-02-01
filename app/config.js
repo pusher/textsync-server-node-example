@@ -1,4 +1,4 @@
-const { INSTANCE_LOCATOR, KEY, PORT } = process.env;
+const { INSTANCE_LOCATOR, KEY, PORT, DEBUG } = process.env;
 
 const getMissingKeyErrorString = keyName =>
   `Unable to find environment variable: ${keyName}! ` +
@@ -11,4 +11,4 @@ if (!KEY) {
   throw new Error(getMissingKeyErrorString('KEY'));
 }
 
-module.exports = { INSTANCE_LOCATOR, KEY, PORT };
+module.exports = { INSTANCE_LOCATOR, KEY, PORT, DEBUG };

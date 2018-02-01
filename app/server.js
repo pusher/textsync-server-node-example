@@ -10,6 +10,12 @@ const textsync = new TextSync({
   key: config.KEY
 });
 
+const debug = (...args) => {
+  if (config.DEBUG) {
+    console.log('debug::: ', ...args);
+  }
+};
+
 /* Allow CORS */
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -20,8 +26,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/textsync/tokens', (req, res) => {
-  console.log(req.headers);
-  console.log(req.body);
+  debug('received auth request');
+  debug('req.body:', req.body);
   // The permissions function should take information about the user from the
   // req object and determine the permissions the user has for the requested
   // document.
@@ -40,7 +46,7 @@ app.post('/textsync/tokens', (req, res) => {
   };
 
   // set the tokenExpiry to 20 minutes
-  let options = { tokenExpiry: 1 * 60 *20 };
+  let options = { tokenExpiry: 1 * 60 * 20 };
   let token = textsync
     .authorizeDocument(req.body, permissionsFn, options)
     .then(token => {
@@ -53,5 +59,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`listening on ${port}`);
+  let msg = `listening on ${port}`;
+  if (config.DEBUG) msg += ' - DEBUG mode';
+  console.log(msg);
 });

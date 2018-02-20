@@ -56,7 +56,7 @@ app.post(config.ENDPOINT, (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  let html = htmlGenerator.generate(port, config.ENDPOINT);
+  let html = htmlGenerator.generate(config.ENDPOINT);
   res.set('Content-Type', 'text/html; charset=utf-8');
   res.send(html);
 });

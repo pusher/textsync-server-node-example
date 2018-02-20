@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const TextSync = require('textsync-server-node');
 const config = require('./config');
+const htmlGenerator = require('./html-generator');
 
 const app = express();
 const port = config.PORT || 3030;
@@ -25,7 +26,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.post('/textsync/tokens', (req, res) => {
+app.post(config.ENDPOINT, (req, res) => {
   debug('received auth request');
   debug('req.body:', req.body);
   // The permissions function should take information about the user from the
@@ -55,7 +56,9 @@ app.post('/textsync/tokens', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('Your auth server is up and running!');
+  let html = htmlGenerator.generate(port, config.ENDPOINT);
+  res.set('Content-Type', 'text/html; charset=utf-8');
+  res.send(html);
 });
 
 app.listen(port, () => {

@@ -8,7 +8,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "prettier": "^1.10.2",
-    "textsync-server-node": "^0.3.0"
+    "textsync-server-node": "^0.4.0"
   },
   "author": "James Lees <james.lees@pusher.com>",
   "scripts": {

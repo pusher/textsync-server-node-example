@@ -1,7 +1,7 @@
 {
   "name": "textsync-server-node-example",
-  "version": "0.0.1",
-  "main": "target/server.js",
+  "version": "0.1.0",
+  "main": "app/server.js",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.2",

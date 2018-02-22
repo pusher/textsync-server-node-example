@@ -17,7 +17,7 @@ const debug = (...args) => {
   }
 };
 
-/* Allow CORS */
+// Allow CORS
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -55,8 +55,8 @@ app.post(config.ENDPOINT, (req, res) => {
     });
 });
 
+const html = htmlGenerator.generate(config.ENDPOINT);
 app.get('/', (req, res) => {
-  let html = htmlGenerator.generate(config.ENDPOINT);
   res.set('Content-Type', 'text/html; charset=utf-8');
   res.send(html);
 });

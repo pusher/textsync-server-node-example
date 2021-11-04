@@ -1,3 +1,7 @@
+# Deprecated
+
+The TextSync service has been deprecated.
+
 # TextSync Example Server
 
 This project aims to demonstrate how to implement a
